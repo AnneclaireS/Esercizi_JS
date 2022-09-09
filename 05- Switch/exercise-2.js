@@ -3,32 +3,20 @@
 // cto => 1800
 // developer => 1500
 // default => 1000
+
 function calculateSalary(role) {
-  switch (role) {
-    case 'ceo': console.log(`il salario di ${role} è di ${2200}`);
-    break;
+  switch(role) {
+    case 'ceo':
+      return 2200;
+    case 'manager':
+      return 1800;
+    case 'cto':
+      return 1800;
+    case 'developer':
+      return 1500;
+    default:
+      return 1000;
   }
-
-  switch (role) {
-    case 'manager': console.log(`il salario di ${role} è di ${2200}`);
-    break;
-  }
-
-  switch (role) {
-    case 'cto': console.log(`il salario di ${role} è di ${2200}`);
-    break;
-  }
-
-  switch (role) {
-    case 'developer': console.log(`il salario di ${role} è di ${2200}`);
-    break;
-  }
-
-  switch (role) {
-    case 'other': console.log(`il salario di ${role} è di ${2200}`);
-    break;
-  }
-
 }
 
 const ceoSalary = calculateSalary('ceo');
@@ -37,3 +25,8 @@ const ctoSalary = calculateSalary('cto');
 const developerSalary = calculateSalary('developer');
 const otherSalary = calculateSalary('other');
 
+console.log(ceoSalary);
+console.log(managerSalary);
+console.log(ctoSalary);
+console.log(developerSalary);
+console.log(otherSalary);
