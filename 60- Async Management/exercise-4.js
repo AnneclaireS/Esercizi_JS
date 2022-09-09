@@ -19,6 +19,21 @@ const persons = [
   }
 ];
 
+const jobs = [
+  {
+    id: 1,
+    jobTitle: 'CEO'
+  },
+  {
+    id: 2,
+    jobTitle: 'Project Manager'
+  },
+  {
+    id: 3,
+    jobTitle: 'Developer'
+  }
+];
+
 
 function fetchPersonById(id) {
   return new Promise((resolve, reject) => {
@@ -34,5 +49,26 @@ function fetchPersonById(id) {
   });
 }
 
-fetchPersonById(3).then((person) => console.log(person));
-// fetchPersonById(33).then((person) => console.log(person));
+
+
+
+
+function fetchJobById(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const job = jobs.find(item => item.id === id);
+      
+      if (job) {
+        return resolve(job);
+      }
+
+      return reject(`Person with id: ${id} doesn't exist`);
+    }, 1000);
+  });
+}
+
+
+
+fetchPersonById(1).then((person) => console.log(person));
+fetchJobById(3).then((job) => console.log(job));
+

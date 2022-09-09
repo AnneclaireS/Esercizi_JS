@@ -23,7 +23,7 @@ function fetchPersonById(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const person = persons.find(item => item.id === id);
-      
+
       if (person) {
         return resolve(JSON.stringify(person));
       }
@@ -33,15 +33,19 @@ function fetchPersonById(id) {
   });
 }
 
-fetchPersonById(1)
-.then((resolve) => {
-  return resolve
-})
+async function asyncFunc() {
 
-.then((resolve) => { 
-  console.log(JSON.parse(resolve)) 
-})
+  let result = JSON.parse(await fetchPersonById(2)); 
 
-.catch(error => {
-  console.log(`${error.message} - Person with this id doesn't exist`)
-});
+  console.log(result);
+
+}
+
+asyncFunc();
+
+
+
+// fetchPersonById(2)
+//   .then((personJson) => JSON.parse(personJson))
+//   .then((person) => console.log(person))
+//   .catch((err) => console.error(err));
