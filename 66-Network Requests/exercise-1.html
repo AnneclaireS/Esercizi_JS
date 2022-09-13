@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <div id="container">
+      <ul class="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  // code here
+
+//   async function fetchTodos (url) {
+//   let response = await fetch('https://jsonplaceholder.typicode.com/todos');
+//   let data = await response.json();
+//   return data;
+
+//   function function1() {
+//   var li = document.createElement("li");
+//   li.appendChild("todo-list");
+//   li.setAttribute("title"); 
+//   ul.appendChild(li);
+//   alert(li.title);
+
+
+// }
+// }
+
+// fetchTodos()
+
+
+let ulEl = document.querySelector('.todo-list');
+  
+  async function fetchList() {
+    let response = await fetch('https://jsonplaceholder.typicode.com/todos');
+    let bodyResponse = await response.json();
+  
+    for (todo in bodyResponse) {
+      let liEl = document.createElement('li');
+      ulEl.append(liEl)
+    }
+    
+    for (let i = 0; i < bodyResponse.length; i++) {
+      let liElArr = document.querySelectorAll('li');
+      liElArr[i].append(bodyResponse[i].title)
+    }
+  }
+
+  fetchList()
+</script>
